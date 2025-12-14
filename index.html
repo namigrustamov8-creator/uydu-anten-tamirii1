@@ -15,7 +15,7 @@
             --accent-color: #ffc107; /* Sarı/Altın */
             --light-bg: #eceff1; /* Açık Gri Zemin */
             --text-color: #333;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Verdana, sans-serif;
         }
 
         * {
@@ -159,7 +159,8 @@
 
         /* Hero Bölümü (Daha Etkileyici) */
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1510511459019-5be77d6fa76e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            /* Temsili uydu anteni görseli yerine daha genel bir teknik görsel */
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1544197152-45e334fa1219?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
             min-height: 90vh; 
             display: flex;
             flex-direction: column;
@@ -248,6 +249,7 @@
              padding: 0;
              overflow: hidden;
              border-top: 8px solid var(--primary-color);
+             cursor: pointer; /* Galeri açıldığı için imleç eklendi */
         }
         
         .product-card img {
@@ -275,6 +277,10 @@
             font-size: 1em;
             border-radius: 8px;
             box-shadow: none;
+            /* Butonu kartın içine sabitlemek için */
+            display: block;
+            width: 90%;
+            margin: 15px auto 10px auto;
         }
         
         .view-gallery-btn:hover {
@@ -425,8 +431,8 @@
         <a href="#hero" data-key="nav_home_mobile">ANA SƏHİFƏ</a>
         <a href="#satellite" data-key="nav_satellite_mobile">PEYK SİSTEMLƏRİ</a>
         <a href="#products" data-key="nav_products_mobile">PEYK MƏHSULLARI</a>
-        <a href="#security" data-key="nav_security_mobile">TƏHLÜKƏSİZLİK KAMERALARI</a>
-        <a href="#devices" data-key="nav_devices_mobile">CİHAZ SERVİSİ (PROQRAM)</a>
+        <a href="#security_services" data-key="nav_security_mobile">TƏHLÜKƏSİZLİK KAMERALARI</a>
+        <a href="#device_products" data-key="nav_devices_mobile">CİHAZ SERVİSİ (PROQRAM)</a>
         <a href="#why-us" data-key="nav_why_us_mobile">NİYƏ BİZ?</a>
         <a href="#contact" data-key="nav_contact_mobile">ƏLAQƏ</a>
     </div>
@@ -482,7 +488,7 @@
         <div class="product-grid container">
 
             <div class="product-card card-item" data-product="single_lnb">
-                <img src="https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg?format=webp&width=700" alt="Tək Çıxışlı LNB">
+                <img src="https://sc04.alicdn.com/kf/Hbd01486671ec474780c1e4426f9c935bU.jpg_350x350.jpg" alt="Tək Çıxışlı LNB">
                 <div class="product-card-content">
                     <h3 data-key="prod1_name">Tək Çıxışlı LNB</h3>
                     <p data-key="prod1_desc">Yüksək siqnal qəbulu üçün standart, etibarlı Tək Çıxışlı LNB modelləri.</p>
@@ -491,7 +497,7 @@
             </div>
             
             <div class="product-card card-item" data-product="dual_lnb">
-                <img src="https://strgimgr.umico.az/img/product/840/bb0dccf7-99db-4514-80f3-4337cd4cea0a.jpeg" alt="İki Çıxışlı LNB">
+                <img src="https://m.media-amazon.com/images/I/51BXxATLO1L.AC_UF1000,1000_QL80.jpg" alt="İki Çıxışlı LNB">
                 <div class="product-card-content">
                     <h3 data-key="prod2_name">İki Çıxışlı LNB</h3>
                     <p data-key="prod2_desc">Eyni antenadan iki fərqli alıcıya siqnal paylamaq üçün ideal çözüm.</p>
@@ -518,7 +524,7 @@
             </div>
 
             <div class="product-card card-item" data-product="receiver">
-                <img src="https://starsat.com/wp-content/uploads/2020/12/1-1-1.jpg" alt="Starsat 4080 HD Extreme Uydu Alıcısı">
+                <img src="https://starsatsoftware.com/wp-content/uploads/2024/02/STARSAT-SR-4080HD-PLUS.jpg" alt="Starsat 4080 HD Extreme Uydu Alıcısı">
                 <div class="product-card-content">
                     <h3 data-key="prod5_name">Starsat 4080 HD Extreme</h3>
                     <p data-key="prod5_desc">Yüksək keyfiyyətli görüntü və sürətli kanallar arası keçid təmin edən qəbuledici.</p>
@@ -536,7 +542,7 @@
             </div>
 
             <div class="product-card card-item" data-product="cable_connector">
-                <img src="https://www.starakim.com/-12330-12-B.jpg" alt="Kablo və F Connector">
+                <img src="https://www.ross.uk/assets/img/product_images/satck3/satck3_main1-x2.jpg" alt="Kablo və F Connector">
                 <div class="product-card-content">
                     <h3 data-key="prod7_name">Kabel və F Connector</h3>
                     <p data-key="prod7_desc">Metrə hesabı yüksək keyfiyyətli LNB kabeli və F konnektorlar (bağlayıcılar).</p>
@@ -547,7 +553,7 @@
         </div>
     </section>
 
-    <section id="security" class="section">
+    <section id="security_services" class="section">
         <h2 data-key="security_heading">Təhlükəsizlik Kameraları Sistemləri</h2>
         
         <div class="service-list container">
@@ -570,25 +576,31 @@
         
         <h2 style="margin-top: 80px;" data-key="security_images_heading">Təmsili Kamera Avadanlıqları</h2>
         <div class="product-grid container">
+            
             <div class="product-card card-item" data-product="dome_cam">
-                <img src="https://images.unsplash.com/photo-1549488344-90f19a0e6981?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dome Kamera">
+                <img src="https://m.media-amazon.com/images/I/510YAn4XPDS._AC_SL1500_.jpg" alt="Dome Kamera">
                 <div class="product-card-content">
                      <h3 data-key="cam1_name">Dome Kamera</h3>
                      <p data-key="cam1_desc">İç və xarici məkanlar üçün şık və dayanıqlı Dome tipli təhlükəsizlik kamerası.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
+            
             <div class="product-card card-item" data-product="bullet_cam">
-                <img src="https://images.unsplash.com/photo-1577764951478-f7b578c90393?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bullet Kamera">
+                <img src="https://hikvision.net.az/uploads/posts/2025-06/1750312397.webp" alt="Bullet Kamera">
                 <div class="product-card-content">
                      <h3 data-key="cam2_name">Bullet Kamera</h3>
                      <p data-key="cam2_desc">Xarici məkan və uzun məsafəli müşahidə üçün güclü Bullet tipli kamera.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
-            <div class="product-card card-item" data-product="dvr_nvr">
-                <img src="https://images.unsplash.com/photo-1621570183296-6e2c39869500?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NVR/DVR Cihazı">
+            
+            <div class="product-card card-item" data-product="nvr_dvr">
+                <img src="https://www.communica.co.za/cdn/shop/products/hkv-ds-7104hghi-m1-376897.jpg?v=1699363005" alt="NVR/DVR Cihazı">
                 <div class="product-card-content">
                      <h3 data-key="nvr_dvr_name">NVR/DVR Qeyd Cihazı</h3>
                      <p data-key="nvr_dvr_desc">Təhlükəsizlik kameralarından gələn görüntüləri etibarlı şəkildə saxlamaq üçün kayıt cihazları.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
         </div>
@@ -615,28 +627,42 @@
                 <p data-key="dev_service3_desc">Ehtiyacınıza uyğun, yeni bileşenlərdən (hissələrdən) ibarət masaüstü kompüterlərin montajı və sıfırdan sistem quraşdırılması.</p>
             </div>
         </div>
+    </section>
+    
+    <section id="device_products" class="section" style="padding-top: 20px;">
+        <h2 data-key="device_images_heading">Proqram Servisinə Aid Təmsili Cihazlar</h2>
         
-        <h2 style="margin-top: 80px;" data-key="device_images_heading">Təmsili Cihazlar</h2>
         <div class="product-grid container">
-            <div class="product-card card-item">
-                <img src="https://images.unsplash.com/photo-1541807084537-88d407851996?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Noutbuk">
+            <div class="product-card card-item" data-product="android_phone">
+                <img src="https://www.xiaomistore.pk/xiaomi_images/category/656dbb80d94d5_1701690240.webp" alt="Android Telefon/Tablet">
                 <div class="product-card-content">
-                     <h3 data-key="dev_img1_name">Noutbuk Təmiri</h3>
-                     <p data-key="dev_img1_desc">Windows və Mac cihazların proqram problemlərinin (sistem xətaları, yavaşlama) həlli.</p>
+                     <h3 data-key="dev_img1_name">Android Smartfonlar</h3>
+                     <p data-key="dev_img1_desc">Samsung, Xiaomi, Huawei kimi Android əməliyyat sistemli cihazların proqram təminatı servisi.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
-            <div class="product-card card-item">
-                <img src="https://images.unsplash.com/photo-1596707328766-fa3d96924376?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cep Telefonu">
+            <div class="product-card card-item" data-product="iphone">
+                <img src="https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-17-pro-max-colors.png" alt="iPhone/iPad">
                 <div class="product-card-content">
-                     <h3 data-key="dev_img2_name">Smartfon Proqramı</h3>
-                     <p data-key="dev_img2_desc">iOS və Android telefonların proqram təminatı problemlərində sürətli və etibarlı xidmət.</p>
+                     <h3 data-key="dev_img2_name">iOS (Apple) Cihazlar</h3>
+                     <p data-key="dev_img2_desc">iPhone və iPad cihazların proqram yenilənməsi və yazılım xətalarının aradan qaldırılması.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
-            <div class="product-card card-item">
-                <img src="https://images.unsplash.com/photo-1525547719571-a4d8b93478be?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Masaüstü PC">
+            <div class="product-card card-item" data-product="pc_laptop">
+                <img src="https://eshop.macsales.com/blog/wp-content/uploads/2016/10/MacLineup-e1486754410757.jpg" alt="Masaüstü/Noutbuk">
                 <div class="product-card-content">
-                     <h3 data-key="dev_img3_name">Masaüstü PC Yığımı</h3>
-                     <p data-key="dev_img3_desc">Oyun, iş və ofis üçün fərdi komputerlərin sıfırdan montajı.</p>
+                     <h3 data-key="dev_img3_name">PC və Noutbuklar</h3>
+                     <p data-key="dev_img3_desc">Windows, Mac və Linux əməliyyat sistemlərinin quraşdırılması və texniki servis.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
+                </div>
+            </div>
+            <div class="product-card card-item" data-product="custom_pc">
+                <img src="https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/en-Us/PcLab/entry_group_img.png?v=92c1bb448df4d54c160407dc170203d0e116e925" alt="Fərdi PC Yığımı">
+                <div class="product-card-content">
+                     <h3 data-key="dev_img4_name">Fərdi PC Yığımı</h3>
+                     <p data-key="dev_img4_desc">Oyun və yüksək performans tələb edən işlər üçün fərdi komputerlərin montajı.</p>
+                     <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görsəlləri Görüntülə</button>
                 </div>
             </div>
         </div>
@@ -719,7 +745,7 @@
         const mapLink = "Https://maps.app.goo.gl/kXmpEshRgkr36QpT9"; 
         document.getElementById('map-link-icon').href = mapLink;
 
-        // 1. DİL ÇEVİRİLERİ (Tüm metinler düzeltildi ve kapsamlı hale getirildi)
+        // 1. DİL ÇEVİRİLERİ (Sadece Yeni Eklenen Alanlar İçin Kontrol Edildi)
         const translations = {
             'az': {
                 'logo_text': 'Namiq Texniki Servis',
@@ -784,13 +810,17 @@
                 'dev_service2_desc': 'Masaüstü və noutbuklar üçün əməliyyat sistemi (Windows/MacOS) quraşdırılması, sürücülər (driver) və proqram tənzimləmələri.',
                 'dev_service3_title': 'Yeni PC Sistem Yığımı',
                 'dev_service3_desc': 'Ehtiyacınıza uyğun, yeni bileşenlərdən (hissələrdən) ibarət masaüstü kompüterlərin montajı və sıfırdan sistem quraşdırılması.',
-                'device_images_heading': 'Təmsili Cihazlar',
-                'dev_img1_name': 'Noutbuk Təmiri',
-                'dev_img1_desc': 'Windows və Mac cihazların proqram problemlərinin (sistem xətaları, yavaşlama) həlli.',
-                'dev_img2_name': 'Smartfon Proqramı',
-                'dev_img2_desc': 'iOS və Android telefonların proqram təminatı problemlərində sürətli və etibarlı xidmət.',
-                'dev_img3_name': 'Masaüstü PC Yığımı',
-                'dev_img3_desc': 'Oyun, iş və ofis üçün fərdi komputerlərin sıfırdan montajı.',
+                
+                'device_images_heading': 'Proqram Servisinə Aid Təmsili Cihazlar',
+                'dev_img1_name': 'Android Smartfonlar',
+                'dev_img1_desc': 'Samsung, Xiaomi, Huawei kimi Android əməliyyat sistemli cihazların proqram təminatı servisi.',
+                'dev_img2_name': 'iOS (Apple) Cihazlar',
+                'dev_img2_desc': 'iPhone və iPad cihazların proqram yenilənməsi və yazılım xətalarının aradan qaldırılması.',
+                'dev_img3_name': 'PC və Noutbuklar',
+                'dev_img3_desc': 'Windows, Mac və Linux əməliyyat sistemlərinin quraşdırılması və texniki servis.',
+                'dev_img4_name': 'Fərdi PC Yığımı',
+                'dev_img4_desc': 'Oyun və yüksək performans tələb edən işlər üçün fərdi komputerlərin montajı.',
+
 
                 'why_us_heading': 'NİYƏ BİZ?', 
                 'reason1_title': 'Təcrübə və Peşəkarlıq',
@@ -858,6 +888,7 @@
                 'sec_service2_desc': 'Kayıt cihazlarının kurulumu, uzaktan mobil izleme ve tüm ayarlar.',
                 'sec_service3_title': 'Kablolama ve Servis',
                 'sec_service3_desc': 'Güvenlik sistemleri için profesyonel kablo çekimi ve temiz altyapı oluşturulması.',
+                
                 'security_images_heading': 'Temsili Kamera Ekipmanları',
                 'cam1_name': 'Dome Kamera',
                 'cam1_desc': 'İç ve dış mekanlar için şık ve dayanıklı Dome tipi güvenlik kamerası.',
@@ -873,13 +904,17 @@
                 'dev_service2_desc': 'Masaüstü ve dizüstü bilgisayarlar için işletim sistemi (Windows/MacOS) kurulumu, sürücü ve program ayarları.',
                 'dev_service3_title': 'Yeni PC Sistem Toplama',
                 'dev_service3_desc': 'İhtiyacınıza uygun, yeni bileşenlerden oluşan masaüstü bilgisayarların montajı ve sıfırdan sistem kurulumu.',
-                'device_images_heading': 'Temsili Cihazlar',
-                'dev_img1_name': 'Dizüstü Bilgisayar Tamiri',
-                'dev_img1_desc': 'Windows ve Mac cihazların yazılım problemlerinin (sistem hataları, yavaşlama) çözümü.',
-                'dev_img2_name': 'Akıllı Telefon Yazılımı',
-                'dev_img2_desc': 'iOS ve Android telefonların yazılım sorunlarında hızlı ve güvenilir hizmet.',
-                'dev_img3_name': 'Masaüstü PC Toplama',
-                'dev_img3_desc': 'Oyun, iş ve ofis için kişisel bilgisayarların sıfırdan montajı.',
+                
+                'device_images_heading': 'Yazılım Servisine Ait Temsili Cihazlar',
+                'dev_img1_name': 'Android Akıllı Telefonlar',
+                'dev_img1_desc': 'Samsung, Xiaomi, Huawei gibi Android işletim sistemli cihazların yazılım servisi.',
+                'dev_img2_name': 'iOS (Apple) Cihazlar',
+                'dev_img2_desc': 'iPhone ve iPad cihazların yazılım güncelleme ve yazılım hatalarının giderilmesi.',
+                'dev_img3_name': 'PC ve Dizüstü Bilgisayarlar',
+                'dev_img3_desc': 'Windows, Mac ve Linux işletim sistemlerinin kurulması ve teknik servis.',
+                'dev_img4_name': 'Özel PC Toplama',
+                'dev_img4_desc': 'Oyun ve yüksek performans gerektiren işler için özel bilgisayarların montajı.',
+
 
                 'why_us_heading': 'NEDEN BİZ?',
                 'reason1_title': 'Deneyim ve Profesyonellik',
@@ -947,6 +982,7 @@
                 'sec_service2_desc': 'Installation of recording devices, remote mobile monitoring, and all necessary configurations.',
                 'sec_service3_title': 'Cabling and Service',
                 'sec_service3_desc': 'Professional cable installation and clean infrastructure creation for security systems.',
+                
                 'security_images_heading': 'Representative Camera Equipment',
                 'cam1_name': 'Dome Camera',
                 'cam1_desc': 'Stylish and durable Dome type security camera for indoor and outdoor spaces.',
@@ -962,13 +998,16 @@
                 'dev_service2_desc': 'Installation of operating systems (Windows/MacOS), drivers, and program configuration for desktops and laptops.',
                 'dev_service3_title': 'New PC System Assembly',
                 'dev_service3_desc': 'Assembly and new system installation of desktop computers from new components tailored to your needs.',
-                'device_images_heading': 'Representative Devices',
-                'dev_img1_name': 'Laptop Repair',
-                'dev_img1_desc': 'Solving software problems (system errors, slow performance) for Windows and Mac devices.',
-                'dev_img2_name': 'Smartphone Software',
-                'dev_img2_desc': 'Fast and reliable service for software issues on iOS and Android phones.',
-                'dev_img3_name': 'Desktop PC Assembly',
-                'dev_img3_desc': 'Custom assembly of computers for gaming, work, and office use from scratch.',
+                
+                'device_images_heading': 'Representative Devices for Software Service',
+                'dev_img1_name': 'Android Smartphones',
+                'dev_img1_desc': 'Software service for Android OS devices such as Samsung, Xiaomi, and Huawei.',
+                'dev_img2_name': 'iOS (Apple) Devices',
+                'dev_img2_desc': 'Software updates and removal of software errors for iPhone and iPad devices.',
+                'dev_img3_name': 'PC and Laptops',
+                'dev_img3_desc': 'Installation of Windows, Mac, and Linux operating systems and technical service.',
+                'dev_img4_name': 'Custom PC Assembly',
+                'dev_img4_desc': 'Assembly of custom computers for gaming and high-performance tasks.',
 
                 'why_us_heading': 'WHY CHOOSE US?',
                 'reason1_title': 'Experience and Professionalism',
@@ -1003,8 +1042,9 @@
             document.documentElement.lang = lang;
         }
 
-        // 2. GALERİ VERİLERİ (Verdiğiniz tüm linkler gruplandırıldı)
+        // 2. GALERİ VERİLERİ (Tüm linkler güncellendi ve yeni gruplar eklendi)
         const productImages = {
+            // UYDU ÜRÜNLERİ (Önceki verilere dokunulmadı)
             'single_lnb': [
                 "https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg?format=webp&width=700",
                 "https://sc04.alicdn.com/kf/H19e2393e59ad4b8e94a2300dec4f366bk.jpg",
@@ -1034,10 +1074,43 @@
                 "https://www.starakim.com/-12330-12-B.jpg",
                 "https://www.ross.uk/assets/img/product_images/satck3/satck3_main1-x2.jpg",
                 "https://m.media-amazon.com/images/I/41QpuzF2mFL.UF1000,1000_QL80.jpg"
+            ],
+            
+            // YENİ KAMERA ÜRÜNLERİ
+            'dome_cam': [
+                "https://m.media-amazon.com/images/I/510YAn4XPDS._AC_SL1500_.jpg",
+                "https://static.wixstatic.com/media/3c2064_1f516a3f76464edead3ca4d05e9a1bf0~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3c2064_1f516a3f76464edead3ca4d05e9a1bf0~mv2.png"
+            ],
+            'bullet_cam': [
+                "https://shopdelta.eu/shop_image/product/ipc-b1b20-0280b_d.jpg",
+                "https://hikvision.net.az/uploads/posts/2025-06/1750312397.webp",
+                "https://shopdelta.eu/shop_image/product/ds-2cd1021-i_2.8mm__f__d.jpg"
+            ],
+            'nvr_dvr': [
+                "https://www.communica.co.za/cdn/shop/products/hkv-ds-7104hghi-m1-376897.jpg?v=1699363005"
+            ],
+            
+            // YENİ CİHAZ (YAZILIM) ÜRÜNLERİ
+            'android_phone': [
+                "https://www.stuff.tv/wp-content/uploads/sites/2/2022/03/Stuff-Best-Android-Phone-2022-Google-OnePlus-Samsung.png",
+                "https://www.xiaomistore.pk/xiaomi_images/category/656dbb80d94d5_1701690240.webp"
+            ],
+            'iphone': [
+                "https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-17-pro-max-colors.png",
+                "https://blackbrookcase.com/cdn/shop/articles/tech-evolution-iphone-through-the-ages-662604.jpg?v=1762429443&width=1800"
+            ],
+            'pc_laptop': [
+                "https://www.okamac.com/img/cms/pourquoi%20acheter%20un%20mac%20reconditionn%C3%A9.jpg",
+                "https://eshop.macsales.com/blog/wp-content/uploads/2016/10/MacLineup-e1486754410757.jpg"
+            ],
+            'custom_pc': [
+                "https://www.illegear.com/shop/645-large_default/illegear-custom-gaming-desktop-pc.jpg",
+                "https://content.ibuypower.com/cdn-cgi/image/width=3840,format=auto,quality=75/https://content.ibuypower.com/Images/en-Us/PcLab/entry_group_img.png?v=92c1bb448df4d54c160407dc170203d0e116e925"
             ]
         };
 
-        // 3. GALERİ MODAL VE SLAYT İŞLEVLERİ 
+
+        // 3. GALERİ MODAL VE SLAYT İŞLEVLERİ (Aynı kaldı)
         const modal = document.getElementById('galleryModal');
         const gallerySlider = document.getElementById('gallery-slider');
         let currentSlide = 0;
@@ -1094,7 +1167,7 @@
             showSlide(currentSlide + n);
         }
 
-        // 4. MOBİL MENÜ (SIDEBAR) İŞLEVLERİ
+        // 4. MOBİL MENÜ (SIDEBAR) İŞLEVLERİ (Aynı kaldı)
         function openNav() {
             document.getElementById("mySidebar").style.width = "280px";
         }
@@ -1119,4 +1192,4 @@
         // JAVASCRIPT SONU
     </script>
 </body>
-  </html>
+</html>
