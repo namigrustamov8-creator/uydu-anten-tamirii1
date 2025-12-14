@@ -1,911 +1,113 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="title">Kapsamlı Teknik Servis ve Uydu Sistemleri | Namiq Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* CSS BAŞLANGICI: YENİ RENKLER VE HAMBURGER MENÜ AYARI */
-        
-        :root {
-            --primary-color: #007bff; /* Mavi Renk */
-            --secondary-color: #343a40; /* Koyu Gri */
-            --accent-color: #ffc107; /* Sarı */
-            --light-bg: #f8f9fa;
-            --text-color: #333;
-            --font-family: 'Arial', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #fff;
-        }
-        
-        /* HEADER VE NAVİGASYON */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background-color: var(--secondary-color);
-            color: white;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .logo {
-            font-size: 1.6em;
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-        
-        /* Büyük Ekran Navigasyonu Gizlendi (Hamburger Menü Her Yerde Çıkacak) */
-        .navbar nav {
-            display: none;
-        }
-
-        .lang-selector button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            margin-left: 8px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .lang-selector button:hover {
-            background: #0056b3; 
-        }
-
-        /* Hambuger İkonu - Sol Üstte Sabit */
-        .menu-toggle {
-            display: block; 
-            font-size: 1.8em;
-            cursor: pointer;
-            color: white;
-            margin-right: 15px; 
-        }
-        
-        /* Mobil Navigasyon (Sidebar) */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            background-color: var(--secondary-color);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .sidebar a {
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 1.1em;
-            color: white;
-            display: block;
-            transition: 0.3s;
-            border-bottom: 1px solid #495057;
-        }
-
-        .sidebar a:hover {
-            color: var(--accent-color);
-            background-color: #495057;
-        }
-
-        .sidebar .close-btn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            color: white;
-            text-decoration: none;
-        }
-
-        /* BÖLÜMLER */
-        .section {
-            padding: 80px 5%; 
-            text-align: center;
-        }
-
-        .section:nth-child(even) {
-            background-color: var(--light-bg);
-        }
-
-        h2 {
-            font-size: 2.8em;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            border-bottom: 4px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* Hero Bölümü */
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1542435503-96cb3e0a2d59?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            height: 80vh; 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 5px #000;
-        }
-
-        .hero-section h1 {
-            font-size: 4.5em;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .hero-section p {
-            font-size: 1.8em;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background-color 0.3s, transform 0.2s;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px) scale(1.05);
-        }
-        
-        /* Genel Kart Stilleri */
-        .service-list, .product-grid, .reason-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .card-item {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s, box-shadow 0.4s;
-            border-top: 5px solid var(--primary-color);
-            text-align: center;
-        }
-
-        .card-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-item i {
-            font-size: 3.5em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        /* Ürün Kartları Görsel İyileştirme */
-        .product-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-            border-bottom: 3px solid var(--accent-color);
-        }
-
-        .product-card {
-             padding: 0;
-             overflow: hidden;
-        }
-        
-        .product-card h3, .product-card p, .product-card button {
-            padding: 0 20px;
-            text-align: center;
-        }
-        
-        .product-card h3 { margin-top: 15px; }
-
-        .view-gallery-btn {
-            margin-top: 15px;
-            margin-bottom: 20px;
-            padding: 10px 20px;
-            font-size: 0.9em;
-        }
-
-        /* İletişim */
-        .contact-section {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .contact-info {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center; 
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        /* Footer - Temizlendi */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: var(--secondary-color);
-            color: white;
-            font-size: 0.9em;
-        }
-        
-        /* Sabit İkonlar (WhatsApp, Telefon, Harita) */
-        .floating-contact {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            z-index: 1010;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.6em;
-            color: white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s;
-        }
-        
-        .contact-icon:hover {
-            transform: scale(1.15) rotate(5deg);
-        }
-        
-        .whatsapp { background-color: #25D366; }
-        .phone { background-color: var(--primary-color); }
-        .map { background-color: var(--accent-color); }
-
-        /* MODAL GALERİ STİLLERİ (Değişmedi) */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.95); 
-        }
-
-        .modal-content {
-            margin: 5% auto; 
-            padding: 20px;
-            width: 90%;
-            max-width: 950px;
-            position: relative;
-            background: transparent;
-        }
-        /* CSS SONU */
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uydu Anten & Teknik Servis</title>
+<style>
+:root{--dark:#020617;--main:#0f766e;--accent:#2563eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f1f5f9;color:#1f2937}
+header{background:linear-gradient(135deg,#020617,#1e293b);color:#fff;padding:25px;position:sticky;top:0;z-index:1000}
+.topbar{display:flex;align-items:center;justify-content:space-between}
+.menu-btn{font-size:26px;cursor:pointer}
+.lang button{margin-left:6px;padding:6px 12px;border:none;border-radius:20px;cursor:pointer;font-weight:bold}
+nav{position:fixed;top:0;left:-260px;width:240px;height:100%;background:#020617;color:#fff;padding:20px;transition:.3s;z-index:2000}
+nav a{display:block;color:#fff;text-decoration:none;padding:10px 0;border-bottom:1px solid #1e293b}
+nav.show{left:0}
+.container{max-width:1300px;margin:auto;padding:30px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.hero img{width:100%;border-radius:20px}
+.card{background:#fff;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:30px;margin-bottom:40px}
+.card h2{margin-top:0}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.product{cursor:pointer;text-align:center}
+.product img{width:100%;height:180px;object-fit:contain;background:#f8fafc;border-radius:16px;padding:10px}
+.gallery{display:none;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:12px}
+.gallery img{width:100%;height:140px;object-fit:contain;background:#fff;border-radius:12px;padding:6px}
+.icons{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:3000}
+.icon-btn{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.whatsapp{background:#25D366}
+.phone{background:#0f766e}
+.map{background:#2563eb}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.why div{background:#f8fafc;border-radius:16px;padding:20px;text-align:center;font-weight:bold}
+footer{text-align:center;padding:30px;color:#475569}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
-        <a href="#hero" data-key="nav_home_mobile">ANASAYFA</a>
-        <a href="#satellite" data-key="nav_satellite_mobile">UYDU SİSTEMLERİ</a>
-        <a href="#security" data-key="nav_security_mobile">GÜVENLİK KAMERALARI</a>
-        <a href="#devices" data-key="nav_devices_mobile">CİHAZ SERVİSİ (YAZILIM)</a>
-        <a href="#why-us" data-key="nav_why_us_mobile">NİYƏ BİZ?</a>
-        <a href="#contact" data-key="nav_contact_mobile">ƏLAQƏ</a>
-    </div>
+<nav id="sideMenu">
+<a href="#anten">Uydu Anten</a>
+<a href="#urunler">Ürünler</a>
+<a href="#kamera">Güvenlik Kameraları</a>
+<a href="#telefon">Telefon & Tablet</a>
+<a href="#bilgisayar">Bilgisayar</a>
+<a href="#neden">Neden Biz?</a>
+</nav>
 
-    <header class="navbar">
-        <div style="display: flex; align-items: center;">
-            <div class="menu-toggle" onclick="openNav()">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="logo" data-key="logo_text">Kapsamlı Teknik Servis</div>
-        </div>
-        
-        <nav></nav>
-        
-        <div class="lang-selector">
-            <button onclick="changeLanguage('az')">AZ</button>
-            <button onclick="changeLanguage('tr')">TR</button>
-            <button onclick="changeLanguage('en')">EN</button>
-        </div>
-    </header>
+<header>
+<div class="topbar">
+<span class="menu-btn" onclick="menu()">☰</span>
+<div class="lang">
+<button onclick="setLang('tr')">TR</button>
+<button onclick="setLang('az')">AZ</button>
+<button onclick="setLang('en')">EN</button>
+</div>
+</div>
+<h1 data-tr="Uydu Anten & Teknik Servis" data-az="Peyk Anten və Texniki Servis" data-en="Satellite Antenna & Technical Service">Uydu Anten & Teknik Servis</h1>
+<p data-tr="Çanağınızı, anteninizi, cihazlarınızı bize havale edin" data-az="Peyk anteninizi və cihazlarınızı bizə etibar edin" data-en="Entrust your antenna and devices to us">Çanağınızı, anteninizi, cihazlarınızı bize havale edin</p>
+</header>
 
-    <section id="hero" class="hero-section">
-        <h1 data-key="hero_heading">Uzman Teknik Servis Çözümleri</h1>
-        <p data-key="hero_subheading">Uydu Kurulumundan Yazılım Onarımına, Güvenlik Çözümlerine Kadar Hepsi Tek Adreste.</p>
-        <a href="#contact" class="btn" data-key="contact_us_btn">Bize Ulaşın</a> 
-    </section>
+<div class="container">
 
-    <section id="satellite" class="section">
-        <h2 data-key="satellite_heading">Uydu Sistemleri ve Hizmetleri</h2>
-        
-        <div class="service-list">
-            <div class="card-item">
-                <i class="fas fa-satellite-dish"></i>
-                <h3 data-key="sat_service1_title">Uydu Anten Kurulumu</h3>
-                <p data-key="sat_service1_desc">Tüm marka ve modeller için hızlı ve profesyonel uydu kurulum hizmeti.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-tools"></i>
-                <h3 data-key="sat_service2_title">Teknik Tamir ve Ayar</h3>
-                <p data-key="sat_service2_desc">Sinyal sorunları, LNB değişimi, kablo arızaları ve ince ayarlar.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-cubes"></i>
-                <h3 data-key="sat_service3_title">Orijinal Ürün Tedariği</h3>
-                <p data-key="sat_service3_desc">Orijinal ve kaliteli Starsat uydu alıcıları, LNB'ler ve tüm aksesuarlar.</p>
-            </div>
-        </div>
-        
-        <h2 style="margin-top: 80px;" data-key="products_heading">Uydu Ürünlerimiz</h2>
-        <div class="product-grid">
+<section class="hero card" id="anten">
+<div>
+<h2 data-tr="Profesyonel Hizmet" data-az="Peşəkar Xidmət" data-en="Professional Service">Profesyonel Hizmet</h2>
+<p data-tr="Uydu anten kurulumu, sinyal ayarı, arıza tespiti ve teknik parça değişimi." data-az="Peyk anten quraşdırılması, siqnal tənzimlənməsi və təmir." data-en="Satellite antenna installation, signal adjustment and repair.">Uydu anten kurulumu, sinyal ayarı, arıza tespiti ve teknik parça değişimi.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1581091215367-59ab6c1f9f17" alt="uydu">
+</section>
 
-            <div class="product-card card-item" data-product="single_lnb">
-                <img src="https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg?format=webp&width=700" alt="Tek Çıkışlı LNB">
-                <h3 data-key="prod1_name">Tek Çıkışlı LNB</h3>
-                <p data-key="prod1_desc">Yüksek performanslı, tek uydu alıcısı için ideal LNB.</p>
-                <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görselleri Görüntüle</button>
-            </div>
-            
-            <div class="product-card card-item" data-product="receiver">
-                <img src="https://starsat.com/wp-content/uploads/2020/12/1-1-1.jpg" alt="Starsat 4080 HD Extreme Uydu Alıcısı">
-                <h3 data-key="prod5_name">Starsat 4080 HD Extreme</h3>
-                <p data-key="prod5_desc">Yüksek çözünürlüklü, hızlı ve gelişmiş uydu alıcısı.</p>
-                <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görselleri Görüntüle</button>
-            </div>
-            
-            <div class="product-card card-item" data-product="diseqc">
-                <img src="https://strgimgr.umico.az/img/product/840/f2b080ec-f990-44a8-9c33-2bc53b996c4d.jpeg" alt="Diseqc Anahtarı">
-                <h3 data-key="prod3_name">Diseqc Anahtarı (4x1)</h3>
-                <p data-key="prod3_desc">Birden fazla uydu antenini tek bir alıcıya bağlamak için.</p>
-                <button class="btn view-gallery-btn" data-key="view_gallery_btn">Görselleri Görüntüle</button>
-            </div>
-        </div>
-    </section>
+<section class="card" id="urunler">
+<h2 data-tr="Ürünler" data-az="Məhsullar" data-en="Products">Ürünler</h2>
+<div class="products">
+<div class="product" onclick="toggle('lnb1')"><img src="https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg"><p>1 Çıkışlı LNB</p><div class="gallery" id="lnb1"><img src="https://sc04.alicdn.com/kf/H19e2393e59ad4b8e94a2300dec4f366bk.jpg"><img src="https://sc04.alicdn.com/kf/Hbd01486671ec474780c1e4426f9c935bU.jpg_350x350.jpg"></div></div>
+<div class="product" onclick="toggle('lnb2')"><img src="https://strgimgr.umico.az/img/product/840/bb0dccf7-99db-4514-80f3-4337cd4cea0a.jpeg"><p>2 Çıkışlı LNB</p><div class="gallery" id="lnb2"><img src="https://strgimgr.umico.az/img/product/840/299f773d-9817-4a94-bf33-e2f6700277e2.jpeg"><img src="https://m.media-amazon.com/images/I/51BXxATLO1L._AC_UF1000,1000_QL80_.jpg"><img src="https://cdn.akakce.com/goldmaster/goldmaster-rm-206-ciftli-x.jpg"></div></div>
+<div class="product" onclick="toggle('diseqc')"><img src="https://strgimgr.umico.az/img/product/840/f2b080ec-f990-44a8-9c33-2bc53b996c4d.jpeg"><p>DiSEqC</p><div class="gallery" id="diseqc"><img src="https://strgimgr.umico.az/img/product/840/f2b080ec-f990-44a8-9c33-2bc53b996c4d.jpeg"></div></div>
+<div class="product"><img src="https://platincdn.com/3106/pictures/BDOJY165241_12v-1a-adaptor-avrupa-priz-tipi-2501.jpg"><p>12V 1A Adaptör</p></div>
+<div class="product"><img src="https://starsat.com/wp-content/uploads/2020/12/1-1-1.jpg"><p>Starsat 4080 HD</p></div>
+<div class="product"><img src="https://productimages.hepsiburada.net/s/423/375-375/110000454315940.jpg"><p>Starsat Kumanda</p></div>
+<div class="product"><img src="https://www.starakim.com/-12330-12-B.jpg"><p>LNB Kablosu</p></div>
+<div class="product"><img src="https://www.ross.uk/assets/img/product_images/satck3/satck3_main1-x2.jpg"><p>F Connector</p></div>
+</div>
+</section>
 
-    <section id="security" class="section">
-        <h2 data-key="security_heading">Güvenlik Kameraları ve Kurulum Çözümleri</h2>
-        <div class="service-list">
-            <div class="card-item">
-                <i class="fas fa-video"></i>
-                <h3 data-key="sec_service1_title">IP/Analog Kamera Kurulumu</h3>
-                <p data-key="sec_service1_desc">Ev, ofis ve işyerleri için profesyonel IP ve analog kamera sistemlerinin montajı.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-shield-alt"></i>
-                <h3 data-key="sec_service2_title">DVR/NVR Cihaz Ayarları</h3>
-                <p data-key="sec_service2_desc">Kayıt cihazlarının kurulumu, uzaktan erişim ayarları ve arıza giderme hizmetleri.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-network-wired"></i>
-                <h3 data-key="sec_service3_title">Kablolama ve Altyapı</h3>
-                <p data-key="sec_service3_desc">Kamera sistemleri için Cat5/Cat6 kablolama ve temiz altyapı oluşturma.</p>
-            </div>
-        </div>
-        
-        <h2 style="margin-top: 80px;" data-key="security_images_heading">Temsili Güvenlik Görselleri</h2>
-        <div class="product-grid">
-            <div class="product-card card-item" data-product="camera1">
-                <img src="https://images.unsplash.com/photo-1549488344-90f19a0e6981?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dome Kamera">
-                <h3 data-key="cam1_name">Dome Kamera</h3>
-                <p data-key="cam1_desc">İç ve dış mekanlar için şık ve dayanıklı dome güvenlik kamerası.</p>
-            </div>
-            <div class="product-card card-item" data-product="camera2">
-                <img src="https://images.unsplash.com/photo-1577764951478-f7b578c90393?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bullet Kamera">
-                <h3 data-key="cam2_name">Bullet Kamera</h3>
-                <p data-key="cam2_desc">Dış mekan ve uzun mesafeli gözetim için güçlü bullet kamera.</p>
-            </div>
-            <div class="product-card card-item" data-product="nvr_dvr">
-                <img src="https://images.unsplash.com/photo-1621570183296-6e2c39869500?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kayıt Cihazı">
-                <h3 data-key="nvr_dvr_name">NVR/DVR Kayıt Cihazı</h3>
-                <p data-key="nvr_dvr_desc">Güvenlik kameralarından gelen görüntüleri depolamak için kayıt cihazları.</p>
-            </div>
-        </div>
-    </section>
+<section class="card" id="neden">
+<h2 data-tr="Neden Bizi Tercih Etmelisiniz?" data-az="Niyə Bizi Seçməlisiniz?" data-en="Why Choose Us?">Neden Bizi Tercih Etmelisiniz?</h2>
+<div class="why">
+<div>Tecrübeli Teknik Servis</div>
+<div>Gerçek Ürünler</div>
+<div>Hızlı ve Güvenilir</div>
+<div>Tüm Cihazlara Destek</div>
+</div>
+</section>
 
-    <section id="devices" class="section">
-        <h2 data-key="devices_heading">Tüm Cihazlar İçin Yazılım ve Teknik Servis</h2>
-        <div class="service-list">
-            <div class="card-item">
-                <i class="fas fa-mobile-alt"></i>
-                <h3 data-key="dev_service1_title">Mobil Telefon Yazılım Servisi</h3>
-                <p data-key="dev_service1_desc">Android ve iOS (iPhone) cihazlarda yazılım güncelleme, uygulama yükleme, format ve kurtarma (recovery) işlemleri.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-laptop"></i>
-                <h3 data-key="dev_service2_title">PC/Laptop Sistem Kurulumu</h3>
-                <p data-key="dev_service2_desc">Masaüstü ve dizüstü bilgisayarlar için işletim sistemi (Windows/MacOS) kurulumu, driver ve program ayarları.</p>
-            </div>
-            <div class="card-item">
-                <i class="fas fa-screwdriver"></i>
-                <h3 data-key="dev_service3_title">Yeni PC Sistem Toplama</h3>
-                <p data-key="dev_service3_desc">Müşteri ihtiyacına uygun, yeni bileşenlerden oluşan masaüstü bilgisayarların montajı ve kurulumu.</p>
-            </div>
-        </div>
-        
-        <h2 style="margin-top: 80px;" data-key="device_images_heading">Temsili Cihaz Görselleri</h2>
-        <div class="product-grid">
-            <div class="product-card card-item" data-product="laptop">
-                <img src="https://images.unsplash.com/photo-1541807084537-88d407851996?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Laptop">
-                <h3 data-key="dev_img1_name">Dizüstü Bilgisayar</h3>
-                <p data-key="dev_img1_desc">Windows ve Mac cihazların yazılım sorunlarını çözüyoruz.</p>
-            </div>
-            <div class="product-card card-item" data-product="phone">
-                <img src="https://images.unsplash.com/photo-1596707328766-fa3d96924376?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cep Telefonu">
-                <h3 data-key="dev_img2_name">Akıllı Telefonlar</h3>
-                <p data-key="dev_img2_desc">Tüm mobil cihazların (Android/iOS) yazılım sorunlarında çözüm ortağınız.</p>
-            </div>
-            <div class="product-card card-item" data-product="desktop">
-                <img src="https://images.unsplash.com/photo-1525547719571-a4d8b93478be?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Masaüstü PC">
-                <h3 data-key="dev_img3_name">Masaüstü Bilgisayar</h3>
-                <p data-key="dev_img3_desc">Sistem toplama ve işletim sistemi kurulum hizmetleri.</p>
-            </div>
-        </div>
-    </section>
+</div>
 
-    <section id="why-us" class="section">
-        <h2 data-key="why_us_heading">Niyə Bizi Seçməlisiniz?</h2>
-        <div class="reason-grid">
-            <div class="reason-item card-item">
-                <i class="fas fa-handshake"></i>
-                <h3 data-key="reason1_title">Deneyim ve Profesyonellik</h3>
-                <p data-key="reason1_desc">Uzun illərdir bu sahədəyik və ən çətin problemləri həll edirik.</p>
-            </div>
-            <div class="reason-item card-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <h3 data-key="reason2_title">Hızlı Servis</h3>
-                <p data-key="reason2_desc">Əlaqə saxladıqdan dərhal sonra əraziyə gəlib problemi həll edirik.</p>
-            </div>
-            <div class="reason-item card-item">
-                <i class="fas fa-award"></i>
-                <h3 data-key="reason3_title">Kalite Güvencesi</h3>
-                <p data-key="reason3_desc">Bütün işçiliyimiz və dəyişdirdiyimiz hissələr zəmanətimiz altındadır.</p>
-            </div>
-            <div class="reason-item card-item">
-                <i class="fas fa-headset"></i>
-                <h3 data-key="reason4_title">7/24 Dəstək</h3>
-                <p data-key="reason4_desc">Hər hansı bir nasazlıq zamanı istənilən vaxt bizimlə əlaqə qura bilərsiniz.</p>
-            </div>
-        </div>
-    </section>
+<div class="icons">
+<a class="icon-btn whatsapp" href="https://wa.me/994707393230">💬</a>
+<a class="icon-btn phone" href="tel:+994707393230">📞</a>
+<a class="icon-btn map" target="_blank" href="https://www.google.com/maps?q=Neft%C3%A7ala%20Rayonu%20Yuxar%C4%B1%20Qaramanl%C4%B1">📍</a>
+</div>
 
-    <section id="contact" class="section contact-section">
-        <h2 data-key="contact_heading">Əlaqə və Yerləşmə</h2>
-        <div class="contact-info">
-            <p data-key="contact_phone1_label">Telefon 1 (Mobil/WhatsApp): <span class="contact-link">0707 39 32 30</span></p>
-            <p data-key="contact_phone2_label">Telefon 2 (Sabit/Alternatif): <span class="contact-link">051 737 10 76</span></p>
-            <p data-key="contact_location_label">Ünvan:</p>
-            <p><span data-key="contact_location" style="font-weight: bold;">Neftçala Rayonu Yuxarı Qaramanlı Kəndi</span></p>
-            
-            <a id="map-link-btn" href="Https://maps.app.goo.gl/kXmpEshRgkr36QpT9" target="_blank" class="btn" style="margin-top: 30px;" data-key="view_location_btn">
-                <i class="fas fa-map-marker-alt"></i> Konumu Haritada Gör
-            </a>
-        </div>
-    </section>
+<footer>© Uydu Anten & Teknik Servis</footer>
 
-    <footer>
-        <p data-key="footer_text">© 2025 Namık Texniki Servis. Bütün hüquqlar qorunur.</p>
-    </footer>
-
-    <div class="floating-contact">
-        <a href="https://wa.me/994707393230" class="contact-icon whatsapp" target="_blank" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:0707393230" class="contact-icon phone" title="Bizi Arayın">
-            <i class="fas fa-phone"></i>
-        </a>
-        <a id="map-link-icon" href="Https://maps.app.goo.gl/kXmpEshRgkr36QpT9" class="contact-icon map" target="_blank" title="Konumumuz">
-            <i class="fas fa-map-marker-alt"></i>
-        </a>
-    </div>
-
-    <div id="galleryModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">×</span>
-            <div id="gallery-slider" class="gallery-slider">
-            </div>
-            <button class="prev-btn" onclick="moveSlide(-1)">❮</button>
-            <button class="next-btn" onclick="moveSlide(1)">❯</button>
-        </div>
-    </div>
-
-    <script>
-        // JAVASCRIPT BAŞLANGICI: ÇEVİRİ VE İŞLEVSELLİK
-
-        // HARİTA LİNKİNİ GÜNCELLEME
-        const mapLink = "Https://maps.app.goo.gl/kXmpEshRgkr36QpT9"; 
-        document.getElementById('map-link-btn').href = mapLink;
-        document.getElementById('map-link-icon').href = mapLink;
-
-        // 1. DİL ÇEVİRİLERİ (İSİM VE NİYƏ BİZ DÜZELTMELERİ YAPILDI)
-        const translations = {
-            'az': {
-                'logo_text': 'Hərtərəfli Texniki Servis',
-                'title': 'Hərtərəfli Texniki Servis və Peyk Sistemləri | Namiq Services',
-                'nav_home_mobile': 'ANA SƏHİFƏ',
-                'nav_satellite_mobile': 'PEYK SİSTEMLƏRİ',
-                'nav_security_mobile': 'TƏHLÜKƏSİZLİK KAMERALARI',
-                'nav_devices_mobile': 'CİHAZ SERVİSİ (PROQRAM)',
-                'nav_why_us_mobile': 'NİYƏ BİZ?',
-                'nav_contact_mobile': 'ƏLAQƏ',
-                
-                'hero_heading': 'Mütəxəssis Texniki Servis Həlləri',
-                'hero_subheading': 'Peyk Quraşdırmadan Proqram Təmirinə, Təhlükəsizlik Həllərinə Qədər Hamısı Bir Ünvanda.',
-                'contact_us_btn': 'Əlaqə Saxlayın',
-                
-                'satellite_heading': 'Peyk Sistemləri və Xidmətləri',
-                'sat_service1_title': 'Peyk Anten Quraşdırılması',
-                'sat_service1_desc': 'Bütün növ antenlərin ən dəqiq və keyfiyyətli quraşdırılması.',
-                'sat_service2_title': 'Texniki Təmir və Tənzimləmə',
-                'sat_service2_desc': 'Siqnal problemləri, LNB və qəbuledici nasazlıqlarının sürətli təmiri.',
-                'sat_service3_title': 'Orijinal Məhsul Təchizatı',
-                'sat_service3_desc': 'Yalnız rəsmi distribyutordan alınan keyfiyyətli Starsat məhsulları.',
-                
-                'products_heading': 'Peyk Məhsullarımız',
-                'prod1_name': 'Tək Çıxışlı LNB',
-                'prod1_desc': 'Yüksək siqnal qəbulu üçün standart LNB.',
-                'prod5_name': 'Starsat 4080 HD Extreme',
-                'prod5_desc': 'Ən son texnologiya ilə təchiz olunmuş HD peyk qəbuledicisi.',
-                'prod3_name': 'Diseqc Açarı (4x1)',
-                'prod3_desc': 'Dörd peyki bir qəbulediciyə qoşmaq üçün avtomatik açar.',
-                'view_gallery_btn': 'Görsəlləri Görüntülə',
-
-                'security_heading': 'Təhlükəsizlik Kameraları və Quraşdırma Həlləri',
-                'sec_service1_title': 'IP/Analog Kamera Quraşdırılması',
-                'sec_service1_desc': 'Ev, ofis və iş yerləri üçün peşəkar IP və analoq kamera sistemlərinin quraşdırılması.',
-                'sec_service2_title': 'DVR/NVR Cihaz Ayarları',
-                'sec_service2_desc': 'Qeyd cihazlarının quraşdırılması, uzaqdan giriş tənzimləmələri və nasazlıqların aradan qaldırılması xidmətləri.',
-                'sec_service3_title': 'Kabel Çəkilişi və İnfrastruktur',
-                'sec_service3_desc': 'Kamera sistemləri üçün Cat5/Cat6 kabel çəkilişi və təmiz infrastruktur yaradılması.',
-                'security_images_heading': 'Təmsili Təhlükəsizlik Görsəlləri',
-                'cam1_name': 'Dome Kamera',
-                'cam1_desc': 'İç və xarici məkanlar üçün şık və dözümlü dome təhlükəsizlik kamerası.',
-                'cam2_name': 'Bullet Kamera',
-                'cam2_desc': 'Xarici məkan və uzun məsafəli nəzarət üçün güclü bullet kamera.',
-                'nvr_dvr_name': 'NVR/DVR Qeyd Cihazı',
-                'nvr_dvr_desc': 'Təhlükəsizlik kameralarından gələn görüntüləri saxlamaq üçün qeyd cihazları.',
-
-
-                'devices_heading': 'Bütün Cihazlar Üçün Proqram və Texniki Servis',
-                'dev_service1_title': 'Mobil Telefon Proqram Servisi',
-                'dev_service1_desc': 'Android və iOS (iPhone) cihazlarda proqram yenilənməsi, tətbiq quraşdırılması, format və məlumat bərpası (recovery) əməliyyatları.',
-                'dev_service2_title': 'PC/Laptop Sistem Quraşdırılması',
-                'dev_service2_desc': 'Masaüstü və noutbuklar üçün əməliyyat sistemi (Windows/MacOS) quraşdırılması, drayver və proqram tənzimləmələri.',
-                'dev_service3_title': 'Yeni PC Sistem Yığımı',
-                'dev_service3_desc': 'Müştəri ehtiyacına uyğun, yeni hissələrdən ibarət masaüstü kompüterlərin montajı və quraşdırılması.',
-                'device_images_heading': 'Təmsili Cihaz Görsəlləri',
-                'dev_img1_name': 'Noutbuk',
-                'dev_img1_desc': 'Windows və Mac cihazların proqram problemlərini həll edirik.',
-                'dev_img2_name': 'Ağıllı Telefonlar',
-                'dev_img2_desc': 'Bütün mobil cihazların (Android/iOS) proqram problemlərində həll ortağınız.',
-                'dev_img3_name': 'Masaüstü Kompüter',
-                'dev_img3_desc': 'Sistem yığımı və əməliyyat sistemi quraşdırılması xidmətləri.',
-
-                'why_us_heading': 'NİYƏ BİZ?', 
-                'reason1_title': 'Təcrübə və Peşəkarlıq',
-                'reason1_desc': 'Uzun illərdir bu sahədəyik və ən çətin problemləri həll edirik.',
-                'reason2_title': 'Sürətli Xidmət',
-                'reason2_desc': 'Əlaqə saxladıqdan dərhal sonra əraziyə gəlib problemi həll edirik.',
-                'reason3_title': 'Keyfiyyət Təminatı',
-                'reason3_desc': 'Bütün işçiliyimiz və dəyişdirdiyimiz hissələr zəmanətimiz altındadır.',
-                'reason4_title': '24/7 Dəstək',
-                'reason4_desc': 'Hər hansı bir nasazlıq zamanı istənilən vaxt bizimlə əlaqə qura bilərsiniz.',
-
-                'contact_heading': 'Əlaqə və Yerləşmə',
-                'contact_phone1_label': 'Telefon 1 (Mobil/WhatsApp):',
-                'contact_phone2_label': 'Telefon 2 (Sabit/Alternativ):',
-                'contact_location_label': 'Ünvan:',
-                'contact_location': 'Neftçala Rayonu Yuxarı Qaramanlı Kəndi',
-                'view_location_btn': 'Konumu Xəritədə Gör',
-                'footer_text': '© 2025 Namiq Texniki Servis. Bütün hüquqlar qorunur.'
-            },
-            'tr': {
-                'logo_text': 'Kapsamlı Teknik Servis',
-                'title': 'Kapsamlı Teknik Servis ve Uydu Sistemleri | Namık Services',
-                'nav_home_mobile': 'ANASAYFA',
-                'nav_satellite_mobile': 'UYDU SİSTEMLERİ',
-                'nav_security_mobile': 'GÜVENLİK KAMERALARI',
-                'nav_devices_mobile': 'CİHAZ SERVİSİ (YAZILIM)',
-                'nav_why_us_mobile': 'NEDEN BİZ?',
-                'nav_contact_mobile': 'İLETİŞİM',
-                
-                'hero_heading': 'Uzman Teknik Servis Çözümleri',
-                'hero_subheading': 'Uydu Kurulumundan Yazılım Onarımına, Güvenlik Çözümlerine Kadar Hepsi Tek Adreste.',
-                'contact_us_btn': 'Bize Ulaşın', 
-                
-                'satellite_heading': 'Uydu Sistemleri ve Hizmetleri',
-                'sat_service1_title': 'Uydu Anten Kurulumu',
-                'sat_service1_desc': 'Tüm marka ve modeller için hızlı ve profesyonel uydu kurulum hizmeti.',
-                'sat_service2_title': 'Teknik Tamir ve Ayar',
-                'sat_service2_desc': 'Sinyal sorunları, LNB değişimi, kablo arızaları ve ince ayarlar.',
-                'sat_service3_title': 'Orijinal Ürün Tedariği',
-                'sat_service3_desc': 'Orijinal ve kaliteli Starsat uydu alıcıları, LNB\'ler ve tüm aksesuarlar.',
-                
-                'products_heading': 'Uydu Ürünlerimiz',
-                'prod1_name': 'Tek Çıkışlı LNB',
-                'prod1_desc': 'Yüksek performanslı, tek uydu alıcısı için ideal LNB.',
-                'prod5_name': 'Starsat 4080 HD Extreme',
-                'prod5_desc': 'Yüksek çözünürlüklü, hızlı ve gelişmiş uydu alıcısı.',
-                'prod3_name': 'Diseqc Anahtarı (4x1)',
-                'prod3_desc': 'Birden fazla uydu antenini tek bir alıcıya bağlamak için.',
-                'view_gallery_btn': 'Görselleri Görüntüle',
-
-                'security_heading': 'Güvenlik Kameraları ve Kurulum Çözümleri',
-                'sec_service1_title': 'IP/Analog Kamera Kurulumu',
-                'sec_service1_desc': 'Ev, ofis ve işyerleri için profesyonel IP ve analog kamera sistemlerinin montajı.',
-                'sec_service2_title': 'DVR/NVR Cihaz Ayarları',
-                'sec_service2_desc': 'Kayıt cihazlarının kurulumu, uzaktan erişim ayarları ve arıza giderme hizmetleri.',
-                'sec_service3_title': 'Kablolama ve Altyapı',
-                'sec_service3_desc': 'Kamera sistemleri için Cat5/Cat6 kablolama ve temiz altyapı oluşturma.',
-                'security_images_heading': 'Temsili Güvenlik Görselleri',
-                'cam1_name': 'Dome Kamera',
-                'cam1_desc': 'İç ve dış mekanlar için şık ve dayanıklı dome güvenlik kamerası.',
-                'cam2_name': 'Bullet Kamera',
-                'cam2_desc': 'Dış mekan ve uzun mesafeli gözetim için güçlü bullet kamera.',
-                'nvr_dvr_name': 'NVR/DVR Kayıt Cihazı',
-                'nvr_dvr_desc': 'Güvenlik kameralarından gelen görüntüleri depolamak için kayıt cihazları.',
-
-                'devices_heading': 'Tüm Cihazlar İçin Yazılım ve Teknik Servis',
-                'dev_service1_title': 'Mobil Telefon Yazılım Servisi',
-                'dev_service1_desc': 'Android ve iOS (iPhone) cihazlarda yazılım güncelleme, uygulama yükleme, format ve kurtarma (recovery) işlemleri.',
-                'dev_service2_title': 'PC/Laptop Sistem Kurulumu',
-                'dev_service2_desc': 'Masaüstü ve dizüstü bilgisayarlar için işletim sistemi (Windows/MacOS) kurulumu, driver ve program ayarları.',
-                'dev_service3_title': 'Yeni PC Sistem Toplama',
-                'dev_service3_desc': 'Müşteri ihtiyacına uygun, yeni bileşenlerden oluşan masaüstü bilgisayarların montajı ve kurulumu.',
-                'device_images_heading': 'Temsili Cihaz Görselleri',
-                'dev_img1_name': 'Dizüstü Bilgisayar',
-                'dev_img1_desc': 'Windows ve Mac cihazların yazılım sorunlarını çözüyoruz.',
-                'dev_img2_name': 'Akıllı Telefonlar',
-                'dev_img2_desc': 'Tüm mobil cihazların (Android/iOS) yazılım sorunlarında çözüm ortağınız.',
-                'dev_img3_name': 'Masaüstü Bilgisayar',
-                'dev_img3_desc': 'Sistem toplama ve işletim sistemi kurulum hizmetleri.',
-
-                'why_us_heading': 'NEDEN BİZ?',
-                'reason1_title': 'Deneyim ve Profesyonellik',
-                'reason1_desc': 'Uzun yıllardır bu sektördeyiz ve en zorlu sorunları çözüyoruz.',
-                'reason2_title': 'Hızlı Servis',
-                'reason2_desc': 'İletişime geçtiğiniz anda bölgenize gelip sorunu çözüyoruz.',
-                'reason3_title': 'Kalite Güvencesi',
-                'reason3_desc': 'Tüm işçiliğimiz ve değiştirdiğimiz parçalar garantimiz altındadır.',
-                'reason4_title': '7/24 Destek',
-                'reason4_desc': 'Herhangi bir arıza durumunda dilediğiniz zaman bizimle iletişime geçebilirsiniz.',
-
-                'contact_heading': 'İletişim ve Konum',
-                'contact_phone1_label': 'Telefon 1 (Mobil/WhatsApp):',
-                'contact_phone2_label': 'Telefon 2 (Sabit/Alternatif):',
-                'contact_location_label': 'Adres:',
-                'contact_location': 'Neftçala Rayonu Yuxarı Qaramanlı Kəndi',
-                'view_location_btn': 'Konumu Haritada Gör',
-                'footer_text': '© 2025 Namık Teknik Servis. Tüm Hakları Saklıdır.'
-            },
-            'en': {
-                'logo_text': 'Comprehensive Technical Service',
-                'title': 'Comprehensive Technical Service and Satellite Systems | Namig Services',
-                'nav_home_mobile': 'HOME',
-                'nav_satellite_mobile': 'SATELLITE SYSTEMS',
-                'nav_security_mobile': 'SECURITY CAMERAS',
-                'nav_devices_mobile': 'DEVICE SERVICE (SOFTWARE)',
-                'nav_why_us_mobile': 'WHY CHOOSE US?',
-                'nav_contact_mobile': 'CONTACT',
-                
-                'hero_heading': 'Expert Technical Service Solutions',
-                'hero_subheading': 'From Satellite Installation to Software Repair, Security Solutions All in One Place.',
-                'contact_us_btn': 'Contact Us',
-                
-                'satellite_heading': 'Satellite Systems and Services',
-                'sat_service1_title': 'Satellite Dish Installation',
-                'sat_service1_desc': 'Fast and professional installation service for all brands and models of dishes.',
-                'sat_service2_title': 'Technical Repair and Adjustment',
-                'sat_service2_desc': 'Signal issues, LNB replacement, cable faults, and fine-tuning.',
-                'sat_service3_title': 'Original Product Supply',
-                'sat_service3_desc': 'Original and quality Starsat receivers, LNBs, and all accessories.',
-                
-                'products_heading': 'Our Satellite Products',
-                'prod1_name': 'Single Output LNB',
-                'prod1_desc': 'Standard LNB ideal for high signal reception on a single receiver.',
-                'prod5_name': 'Starsat 4080 HD Extreme',
-                'prod5_desc': 'HD satellite receiver equipped with the latest technology.',
-                'prod3_name': 'Diseqc Switch (4x1)',
-                'prod3_desc': 'Automatic switch to connect multiple satellite dishes to a single receiver.',
-                'view_gallery_btn': 'View Gallery',
-
-                'security_heading': 'Security Camera and Installation Solutions',
-                'sec_service1_title': 'IP/Analog Camera Installation',
-                'sec_service1_desc': 'Professional installation of IP and analog camera systems for home, office, and businesses.',
-                'sec_service2_title': 'DVR/NVR Device Settings',
-                'sec_service2_desc': 'Setup of recording devices, remote access configuration, and troubleshooting services.',
-                'sec_service3_title': 'Cabling and Infrastructure',
-                'sec_service3_desc': 'Cat5/Cat6 cabling and clean infrastructure setup for camera systems.',
-                'security_images_heading': 'Representative Security Images',
-                'cam1_name': 'Dome Kamera',
-                'cam1_desc': 'Stylish and durable dome security camera for indoor and outdoor spaces.',
-                'cam2_name': 'Bullet Kamera',
-                'cam2_desc': 'Powerful bullet camera for outdoor and long-distance surveillance.',
-                'nvr_dvr_name': 'NVR/DVR Recording Device',
-                'nvr_dvr_desc': 'Recording devices for storing footage from security cameras.',
-
-                'devices_heading': 'Software and Technical Service for All Devices',
-                'dev_service1_title': 'Mobile Phone Software Service',
-                'dev_service1_desc': 'Software updates, application installation, formatting, and data recovery on Android and iOS (iPhone) devices.',
-                'dev_service2_title': 'PC/Laptop System Setup',
-                'dev_service2_desc': 'Installation of operating systems (Windows/MacOS), drivers, and program configuration for desktops and laptops.',
-                'dev_service3_title': 'New PC System Assembly',
-                'dev_service3_desc': 'Assembly and setup of desktop computers using new components tailored to customer needs.',
-                'device_images_heading': 'Representative Device Images',
-                'dev_img1_name': 'Laptop',
-                'dev_img1_desc': 'We solve software issues for Windows and Mac devices.',
-                'dev_img2_name': 'Smartphones',
-                'dev_img2_desc': 'Your solution partner for software issues on all mobile devices (Android/iOS).',
-                'dev_img3_name': 'Desktop Computer',
-                'dev_img3_desc': 'Services for system assembly and operating system installation.',
-
-                'why_us_heading': 'WHY CHOOSE US?',
-                'reason1_title': 'Experience and Professionalism',
-                'reason1_desc': 'We have been in this sector for many years and solve the most difficult problems.',
-                'reason2_title': 'Rapid Service',
-                'reason2_desc': 'We arrive at your location immediately after contact to resolve the issue.',
-                'reason3_title': 'Quality Guarantee',
-                'reason3_desc': 'All our work and replaced parts are under our warranty.',
-                'reason4_title': '24/7 Support',
-                'reason4_desc': 'You can contact us anytime in case of any malfunction.',
-
-                'contact_heading': 'Contact and Location',
-                'contact_phone1_label': 'Phone 1 (Mobile/WhatsApp):',
-                'contact_phone2_label': 'Phone 2 (Landline/Alternative):',
-                'contact_location_label': 'Address:',
-                'contact_location': 'Yuxarı Qaramanlı Village, Neftçala District',
-                'view_location_btn': 'View Location on Map',
-                'footer_text': '© 2025 Namig Technical Service. All Rights Reserved.'
-            }
-        };
-
-        function changeLanguage(lang) {
-            document.querySelectorAll('[data-key]').forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (key === 'title') {
-                     document.title = translations[lang][key];
-                } else if (translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                }
-            });
-            document.documentElement.lang = lang;
-        }
-
-        // 2. GALERİ VERİLERİ 
-        const productImages = {
-            'single_lnb': [
-                "https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg?format=webp&width=700",
-                "https://sc04.alicdn.com/kf/H19e2393e59ad4b8e94a2300dec4f366bk.jpg"
-            ],
-            'receiver': [
-                "https://starsat.com/wp-content/uploads/2020/12/1-1-1.jpg",
-                "https://starsatsoftware.com/wp-content/uploads/2024/02/STARSAT-SR-4080HD-PLUS.jpg"
-            ],
-            'diseqc': [
-                "https://strgimgr.umico.az/img/product/840/f2b080ec-f990-44a8-9c33-2bc53b996c4d.jpeg" 
-            ],
-        };
-
-        // 3. GALERİ MODAL VE SLAYT İŞLEVLERİ 
-        const modal = document.getElementById('galleryModal');
-        const gallerySlider = document.getElementById('gallery-slider');
-        let currentSlide = 0;
-        let images = []; 
-
-        document.querySelectorAll('.view-gallery-btn').forEach(button => {
-            button.addEventListener('click', (e) => {
-                const productKey = e.target.closest('.product-card').getAttribute('data-product');
-                images = productImages[productKey] || [];
-                currentSlide = 0;
-                loadGallery();
-                modal.style.display = 'block';
-            });
-        });
-
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
-        window.onclick = (event) => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        };
-
-        function loadGallery() {
-            gallerySlider.innerHTML = ''; 
-            images.forEach((src, index) => {
-                const img = document.createElement('img');
-                img.src = src;
-                img.alt = `Product Image ${index + 1}`;
-                img.style.display = 'none'; 
-                gallerySlider.appendChild(img);
-            });
-            showSlide(currentSlide);
-        }
-
-        function showSlide(n) {
-            const slides = gallerySlider.getElementsByTagName('img');
-            if (slides.length === 0) return;
-
-            if (n >= slides.length) { currentSlide = 0; }
-            if (n < 0) { currentSlide = slides.length - 1; }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = 'none';
-            }
-            
-            slides[currentSlide].style.display = 'block';
-        }
-
-        function moveSlide(n) {
-            currentSlide += n;
-            showSlide(currentSlide);
-        }
-
-        // 4. MOBİL MENÜ (SIDEBAR) İŞLEVLERİ
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "280px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-        }
-        
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Sadece anchor linklere tıklanınca menü kapansın
-                if (link.getAttribute('href').startsWith('#')) {
-                    closeNav();
-                }
-            });
-        });
-
-        // 5. BAŞLANGIÇ: Varsayılan dil ayarı
-        document.addEventListener('DOMContentLoaded', () => {
-            changeLanguage('az');
-        });
-        // JAVASCRIPT SONU
-    </script>
+<script>
+function toggle(id){const g=document.getElementById(id);if(!g)return;g.style.display=g.style.display==='grid'?'none':'grid'}
+function menu(){document.getElementById('sideMenu').classList.toggle('show')}
+function setLang(l){document.querySelectorAll('[data-'+l+']').forEach(e=>e.innerText=e.getAttribute('data-'+l))}
+</script>
 </body>
 </html>
