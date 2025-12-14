@@ -19,7 +19,7 @@
         }
 
         * {
-            box-sizing: border-box;
+            box-sizing: border-box; /* ÖNEMLİ DÜZELTME: Tüm elemanların genişliği padding ve border dahil hesaplanacak */
             margin: 0;
             padding: 0;
             scroll-behavior: smooth;
@@ -30,6 +30,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: #fff;
+            overflow-x: hidden; /* ÖNEMLİ DÜZELTME: Yatay kaydırmayı engeller */
         }
         
         .container {
@@ -141,6 +142,12 @@
             padding: 100px 5%; 
             text-align: center;
         }
+        /* Mobil cihazlarda padding'i azaltalım */
+        @media (max-width: 768px) {
+            .section {
+                padding: 50px 3%; 
+            }
+        }
 
         .section:nth-child(even) {
             background-color: var(--light-bg);
@@ -155,6 +162,14 @@
             padding-bottom: 15px;
             font-weight: 800;
             text-transform: uppercase;
+        }
+
+        /* Mobil cihazlarda h2 boyutunu küçültelim */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 2em; /* Yazıların sığması için küçültüldü */
+                margin-bottom: 40px;
+            }
         }
 
         /* Hero Bölümü (Daha Etkileyici) */
@@ -181,6 +196,17 @@
             font-size: 2em;
             margin-bottom: 50px;
             max-width: 800px;
+        }
+
+        /* Mobil Hero Metin Düzeltmeleri */
+        @media (max-width: 600px) {
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1.2em;
+                padding: 0 10px; /* Kenar boşluğu eklendi */
+            }
         }
 
         .btn {
@@ -212,6 +238,14 @@
             margin-top: 30px;
         }
 
+        /* Mobil cihazlarda daha küçük kart aralığı */
+        @media (max-width: 600px) {
+            .service-list, .product-grid, .reason-grid {
+                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
         .card-item {
             background: white;
             padding: 35px 25px;
@@ -222,6 +256,15 @@
             text-align: center;
         }
 
+        /* Kartlardaki başlık ve açıklama metinlerinin sığmasını sağlamak için */
+        .card-item h3 {
+            word-wrap: break-word; /* Uzun kelimeleri böler */
+            overflow-wrap: break-word; /* Uzun kelimeleri böler */
+        }
+        .card-item p {
+            font-size: 0.95em; /* Metin sığmazsa biraz küçültüldü */
+        }
+        
         .card-item:hover {
             transform: translateY(-12px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
@@ -428,13 +471,13 @@
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
-        <a href="#hero" data-key="nav_home_mobile">ANA SƏHİFƏ</a>
-        <a href="#satellite" data-key="nav_satellite_mobile">PEYK SİSTEMLƏRİ</a>
-        <a href="#products" data-key="nav_products_mobile">PEYK MƏHSULLARI</a>
-        <a href="#security_services" data-key="nav_security_mobile">TƏHLÜKƏSİZLİK KAMERALARI</a>
-        <a href="#device_products" data-key="nav_devices_mobile">CİHAZ SERVİSİ (PROQRAM)</a>
-        <a href="#why-us" data-key="nav_why_us_mobile">NİYƏ BİZ?</a>
-        <a href="#contact" data-key="nav_contact_mobile">ƏLAQƏ</a>
+        <a href="#hero" data-key="nav_home_mobile" data-section="hero">ANA SƏHİFƏ</a>
+        <a href="#satellite" data-key="nav_satellite_mobile" data-section="satellite">PEYK SİSTEMLƏRİ</a>
+        <a href="#products" data-key="nav_products_mobile" data-section="products">PEYK MƏHSULLARI</a>
+        <a href="#security_services" data-key="nav_security_mobile" data-section="security_services">TƏHLÜKƏSİZLİK KAMERALARI</a>
+        <a href="#device_products" data-key="nav_devices_mobile" data-section="device_products">CİHAZ SERVİSİ (PROQRAM)</a>
+        <a href="#why-us" data-key="nav_why_us_mobile" data-section="why-us">NİYƏ BİZ?</a>
+        <a href="#contact" data-key="nav_contact_mobile" data-section="contact">ƏLAQƏ</a>
     </div>
 
     <header class="navbar">
@@ -745,7 +788,7 @@
         const mapLink = "Https://maps.app.goo.gl/kXmpEshRgkr36QpT9"; 
         document.getElementById('map-link-icon').href = mapLink;
 
-        // 1. DİL ÇEVİRİLERİ (Sadece Yeni Eklenen Alanlar İçin Kontrol Edildi)
+        // 1. DİL ÇEVİRİLERİ (Aynı Kaldı)
         const translations = {
             'az': {
                 'logo_text': 'Namiq Texniki Servis',
@@ -1005,7 +1048,7 @@
                 'dev_img2_name': 'iOS (Apple) Devices',
                 'dev_img2_desc': 'Software updates and removal of software errors for iPhone and iPad devices.',
                 'dev_img3_name': 'PC and Laptops',
-                'dev_img3_desc': 'Installation of Windows, Mac, and Linux operating systems and technical service.',
+                'dev_img3_desc': 'Installation of Windows, Mac and Linux operating systems and technical service.',
                 'dev_img4_name': 'Custom PC Assembly',
                 'dev_img4_desc': 'Assembly of custom computers for gaming and high-performance tasks.',
 
@@ -1015,7 +1058,7 @@
                 'reason2_title': 'Fast and Reliable Service',
                 'reason2_desc': 'We arrive at the location immediately after your request and quickly complete your service.',
                 'reason3_title': 'High-Quality Products',
-                'reason3_desc': 'We only use original and guaranteed products (Starsat and other spare parts).',
+                'reason3_desc': 'We only use original and guaranteed products (Starsat and other spare parts) use.',
                 'reason4_title': 'Continuous Support',
                 'reason4_desc': 'We guarantee our work and provide you with continuous support in case of any malfunction.',
 
@@ -1042,9 +1085,9 @@
             document.documentElement.lang = lang;
         }
 
-        // 2. GALERİ VERİLERİ (Tüm linkler güncellendi ve yeni gruplar eklendi)
+        // 2. GALERİ VERİLERİ (Aynı Kaldı)
         const productImages = {
-            // UYDU ÜRÜNLERİ (Önceki verilere dokunulmadı)
+            // UYDU ÜRÜNLERİ 
             'single_lnb': [
                 "https://api-rayashop.freetls.fastly.net/media/catalog/product/cache/4e49ac3a70c0b98a165f3fa6633ffee1/k/i/kilz6s6_-_imgur.jpg?format=webp&width=700",
                 "https://sc04.alicdn.com/kf/H19e2393e59ad4b8e94a2300dec4f366bk.jpg",
@@ -1110,7 +1153,7 @@
         };
 
 
-        // 3. GALERİ MODAL VE SLAYT İŞLEVLERİ (Aynı kaldı)
+        // 3. GALERİ MODAL VE SLAYT İŞLEVLERİ (Aynı Kaldı)
         const modal = document.getElementById('galleryModal');
         const gallerySlider = document.getElementById('gallery-slider');
         let currentSlide = 0;
@@ -1167,7 +1210,7 @@
             showSlide(currentSlide + n);
         }
 
-        // 4. MOBİL MENÜ (SIDEBAR) İŞLEVLERİ (Aynı kaldı)
+        // 4. MOBİL MENÜ (SIDEBAR) İŞLEVLERİ VE YÖNLENDİRME DÜZELTMESİ
         function openNav() {
             document.getElementById("mySidebar").style.width = "280px";
         }
@@ -1176,10 +1219,22 @@
             document.getElementById("mySidebar").style.width = "0";
         }
         
+        // ÖNEMLİ DÜZELTME: Mobil menü linklerine tıklandığında sayfanın en üste dönmesini (yenilenmesini) engelleme
         document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', () => {
-                // Sadece anchor linklere tıklanınca menü kapansın
-                if (link.getAttribute('href').startsWith('#')) {
+            link.addEventListener('click', (event) => {
+                const sectionId = link.getAttribute('data-section');
+                
+                // Eğer linkin section ID'si varsa, varsayılan işlemi (sayfa yenileme) engelle
+                if (sectionId) {
+                    event.preventDefault(); 
+                    
+                    const targetElement = document.getElementById(sectionId);
+                    if (targetElement) {
+                        // Smooth scroll ile istenen bölüme kaydır
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    
+                    // Menüyü kapat
                     closeNav();
                 }
             });
@@ -1192,4 +1247,4 @@
         // JAVASCRIPT SONU
     </script>
 </body>
-</html>
+    </html>
